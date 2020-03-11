@@ -1,8 +1,12 @@
-#!/bin/bash
+    #!/bin/bash
 
 # ----------------------------------------------------
 # ARQUIVO DE CONFIGURAÇÃO DE PROGRAMAS DO UBUNTU 18.04
 # ----------------------------------------------------
+
+#-----------------------------------------------------
+# RODAR ESSE SCRIPT NO MODO ADMINISTRADOR (SUDO SU)
+#-----------------------------------------------------
 
 
 # Comando de Instalação Java:
@@ -35,10 +39,10 @@ echo ""
 
 # Instalando NVM
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
-echo ""
-echo 'NVM INSTALADO COM SUCESSO'
-echo ""
+#curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+#echo ""
+#echo 'NVM INSTALADO COM SUCESSO'
+#echo ""
 
 # Instalando python3
 
@@ -75,18 +79,28 @@ sudo chmod +x /usr/local/bin/docker-compose
 echo ""
 echo 'DOCKER-COMPOSE INSTALADO COM SUCESSO'
 echo ""
+
+# Instalando Node
+echo 'y' | sudo -S apt install nodejs
 echo ""
+echo 'NODEJS INSTALADO COM SUCESSO'
+echo ""
+
+# Instalando NPM
+echo 'y' | sudo -S apt install npm
+echo ''
+echo 'NPM INSTALADO COM SUCESSO'
+echo ""
+
+# Instalando o N (version manager do Node)
+npm install -g n
 
 # Atualizando Tudo
 sudo apt update
 
-# Instalando o Node
-#gnome-terminal -e nvm install 10
-gnome-terminal -e echo 'y' | sudo -S apt-get install python3-pip 
-
-echo ''
-echo "Node instalado com Sucesso!"
-echo ''
+# Baixando o Toolbox
+# firefox https://www.jetbrains.com/toolbox-app/download/download-thanks.html
+# Só clique para salvar
 
 # Verificações
 
@@ -106,11 +120,10 @@ echo 'VSCODE'
 code --version
 echo 'DOCKER-COMPOSE'
 docker-compose -v
-echo 'NVM'
-exec nvm --version
 echo 'NODE'
 node -v
 npm -v
+n --version
 echo 'DOCKER'
 sudo systemctl status docker
 echo ''
